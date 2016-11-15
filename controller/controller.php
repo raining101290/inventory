@@ -62,10 +62,10 @@ class ProcessorClass
 			header('Location: ../index.php?email=sent#toregister');
 		}
 	}
-	public function AddPortfolio($item)
+	public function Upload_products($pCode, $pCat, $pName, $pQty, $pBprice, $pSprice)
 	{
 		require_once('dbconnect.php');
-		$query = "INSERT INTO `portfoliotable` (`portfolioitem`, `status`) VALUES ('$item', '1')"; 
+		$query = "INSERT INTO `product_info` (`p_code`, `p_cat`, `p_name`, `p_qty`, `pb_price`, `ps_price`, `p_photo`, `status`) VALUES ('$pCode', '$pCat', '$pName', '$pQty', '$pBprice', '$pSprice', '', '1')"; 
 		$result = mysqli_query($conn, $query);
 		return $result;
 		mysqli_close($conn);

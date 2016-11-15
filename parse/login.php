@@ -1,7 +1,6 @@
 <?php
-
-error_reporting(0);
 session_start();
+error_reporting(0);
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -53,5 +52,4 @@ else
 		}
 	}
 }
-session_destroy();
 ?>

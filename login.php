@@ -54,19 +54,19 @@
 			        data: { username: username, password: password },
 			        success: function(response) {
 			            if(response == "username empty"){
-			            	var message = "Please provide information correctly."
+			            	var message = "Please provide information correctly.";
 			            	var container = "message-container";
 			            	var type = 0;
 			            	Inventory.Notify(type, message, container);
 			            }
 			            else if(response == "error"){
-			            	var message = "Wrong"
+			            	var message = "Wrong";
 			            	var container = "message-container";
 			            	var type = 0;
 			            	Inventory.Notify(type, message, container);
 			            }
 			            else if(response == "done"){
-			            	var message = "Login Successful"
+			            	var message = "Login Successful";
 			            	var container = "message-container";
 			            	var type = 1;
 			            	Inventory.Notify(type, message, container);
