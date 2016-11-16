@@ -16,9 +16,20 @@
 	else{
 		include('../controller/controller.php');
 		$call = new ProcessorClass();
-		$flag = $call->Upload_products($pCode, $pCat, $pName, $pQty, $pBprice, $pSprice);
-		if($flag == true){
-			echo 'done';
+		if(is_array($_FILES)) {
+			if(is_uploaded_file($_FILES['pFilename']['tmp_name'])) 
+			{
+				$temp = explode(".", $_FILES["pFilename"]["name"]);
+				$newfilename = round(microtime(true)) . '.' . end($temp);
+				if(move_uploaded_file($_FILES["pFilename"]["tmp_name"], "../assets/img/" . $newfilename))
+				{
+					$flag = $call->Upload_products($pCode, $pCat, $pName, $pQty, $pBprice, $pSprice, $newfilename);
+					if($flag == true)
+					{
+						echo 'done';
+					}
+				}
+			}
 		}
 	}
 ?>

@@ -34,7 +34,7 @@
 	                <a href="">Forgot Password</a>
 	            </div>
 	            <div class="form-group text-center">
-	                <button type="submit" class="btn btn-success btn-login"> LOGIN </button>
+	                <button type="submit" tabindex="1" class="btn btn-success btn-login"> LOGIN </button>
 	            </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
 			            	Inventory.Notify(type, message, container);
 			            }
 			            else if(response == "error"){
-			            	var message = "Wrong";
+			            	var message = "Wrong Username or Password";
 			            	var container = "message-container";
 			            	var type = 0;
 			            	Inventory.Notify(type, message, container);

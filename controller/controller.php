@@ -62,15 +62,22 @@ class ProcessorClass
 			header('Location: ../index.php?email=sent#toregister');
 		}
 	}
-	public function Upload_products($pCode, $pCat, $pName, $pQty, $pBprice, $pSprice)
+	public function Upload_products($pCode, $pCat, $pName, $pQty, $pBprice, $pSprice, $pPhoto)
 	{
 		require_once('dbconnect.php');
-		$query = "INSERT INTO `product_info` (`p_code`, `p_cat`, `p_name`, `p_qty`, `pb_price`, `ps_price`, `p_photo`, `status`) VALUES ('$pCode', '$pCat', '$pName', '$pQty', '$pBprice', '$pSprice', '', '1')"; 
+		$query = "INSERT INTO `product_info` (`p_code`, `p_cat`, `p_name`, `p_qty`, `pb_price`, `ps_price`, `p_photo`, `status`) VALUES ('$pCode', '$pCat', '$pName', '$pQty', '$pBprice', '$pSprice', '$pPhoto', '1')"; 
 		$result = mysqli_query($conn, $query);
 		return $result;
 		mysqli_close($conn);
 	}
-	
+	public function ShowProducts()
+	{
+		require_once('dbconnect.php');
+		$query = "SELECT  t1.*, t2.category_name FROM `product_info` t1 INNER JOIN `product_category` t2 on t1.p_cat = t2.id WHERE `status` = 1";
+		$result = mysqli_query($conn, $query);
+		return $result;
+		mysqli_close($conn);
+	}
 }
 
 ?>

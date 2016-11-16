@@ -14,6 +14,9 @@
 .form-tips i {
     color: #0099FF;
 }
+.dropdown-menu .divider{
+    margin: 0px;
+}
 .popover{
     font-family: inherit;
 }
@@ -779,8 +782,13 @@
     vertical-align: middle;
     text-align: center;
 }
-.fileinput .thumbnail > img {
-    max-height: 100%;
+.fileinput .thumbnail img {
+    max-height: 140px;
+    max-width: 140px;
+    display: inline-block;
+}
+.fileinput .thumbnail > span{
+    line-height: 140px;
     display: block;
 }
 .fileinput-exists .fileinput-new, 
@@ -801,4 +809,8 @@
     position: relative;
     overflow: hidden;
     width: 302px;
+}
+.photo-info{
+    display: inline-block;
+    padding-left: 15px;
 }
