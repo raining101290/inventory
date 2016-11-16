@@ -16,6 +16,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <i class="fa fa-angle-down"></i></a>
 					<ul class="dropdown-menu animated flipInY">
+						<li><a href="add_category.php"><i class="icon-layers"></i> Add Category</a></li>
 						<li><a href="add_product.php"><i class="icon-layers"></i> Add Products</a></li>
 						<li><a href="product-list.php"><i class="icon-list"></i> Products List</a></li>
 					</ul>

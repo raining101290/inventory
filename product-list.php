@@ -34,54 +34,51 @@ include('controller/authentication.php');
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-12">
+							<?php
+								include('controller/controller.php');
+								$access = new ProcessorClass();
+								$result = $access->ShowProducts();
+								$NumOfRow = mysqli_num_rows($result);
+							?>
 							<div class="white-block">
 								<div class="header-bar border">
-									<h3>Products List </h3>
+									<h3 class="inline">Products List </h3>
 								</div>
 								<div class="body-bar">
-									<table class="table table-bordered">
-										<tr>
-											<th>Photo</th>
-											<th>Product Code</th>
-											<th>Product Category</th>
-											<th>Name</th>
-											<th>Quantity</th>
-											<th>Buying Price</th>
-											<th>Selling Price</th>
-										</tr>
-										<tr>
-											<?php
-												include('controller/controller.php');
-												$access = new ProcessorClass();
-												$result = $access->ShowProducts();
-												$NumOfRow = mysqli_num_rows($result);
-												if($NumOfRow > 0){
-													while ( $row = mysqli_fetch_array($result)) {
-														?>
-														<tr>
-															<td><img src="assets/img/<?php echo $row['p_photo']; ?>" width="50" /></td>
-															<td><?php echo $row['p_code']; ?></td>
-															<td><?php echo $row['category_name']; ?></td>
-															<td><?php echo $row['p_name']; ?></td>
-															<td><?php echo $row['p_qty']; ?></td>
-															<td><?php echo $row['pb_price']; ?></td>
-															<td><?php echo $row['ps_price']; ?></td>
-														</tr>
-														<?php
-													}
-												}
-												else{
+									<div class="row">
+										<?php
+											if($NumOfRow > 0){
+												while ( $row = mysqli_fetch_array($result)) {
 													?>
-													<tr>
-														<td colspan="7" align="center">
-															<h3>No Data Found</h3>
-														</td>
-													</tr>
+													<div class="col-md-6">
+														<div class="flex product-cont">
+															<div class="photo">
+																<img src="assets/img/<?php echo $row['p_photo']; ?>" />
+															</div>
+															<div class="pro-info">
+																<a href="javascript:;" class="btn btn-primary btn-sm edit-item"><i class="icon-pencil"></i></a>
+																<a href="javascript:;" class="btn btn-danger btn-sm delete-item"><i class="icon-trash"></i></a>
+																<h3 class="wrap-text"><?php echo $row['category_name']; ?></h3>
+																<p><span>Code:</span> <?php echo $row['p_code']; ?></p>
+																<p><span>Category:</span> <?php echo $row['category_name']; ?></p>
+																<p><span>Quantity:</span> <?php echo $row['p_qty']; ?></p>
+																<p><span>Buying Price:</span> <?php echo $row['pb_price']; ?></p>
+																<p><span>Selling Price:</span> <?php echo $row['ps_price']; ?></p>
+															</div>
+														</div>
+													</div>
 													<?php
 												}
-											?>
-										</tr>
-									</table>
+											}
+											else{
+												?>
+												<div class="no-data">
+													<h3>No Data Found</h3>
+												</div>
+												<?php
+											}
+										?>
+									</div>
 								</div>
 							</div>
 						</div>
