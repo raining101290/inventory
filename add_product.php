@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include('controller/authentication.php');
 ?>
 <!DOCTYPE html>
@@ -206,6 +207,7 @@ include('controller/authentication.php');
 								$('.form-container').find('input').val('');
 								$('.form-container').find('select').val('0');
 								$('.g-logo-img img').attr('src', 'assets/img/product.png');
+								$('.photo-info').empty();
 				            }
 				            else{
 				            	var message = response;
@@ -221,6 +223,7 @@ include('controller/authentication.php');
 				$('.form-container').find('input').val('');
 				$('.form-container').find('select').val('0');
 				$('.g-logo-img img').attr('src', 'assets/img/product.png');
+				$('.photo-info').empty();
 			});
 		});
 	</script>

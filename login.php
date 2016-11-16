@@ -34,7 +34,7 @@
 	                <a href="">Forgot Password</a>
 	            </div>
 	            <div class="form-group text-center">
-	                <button type="submit" tabindex="1" class="btn btn-success btn-login"> LOGIN </button>
+	                <button type="button" tabindex="1" class="btn btn-success btn-login"> LOGIN </button>
 	            </div>
             </div>
         </div>
@@ -46,8 +46,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.btn-login').click(function(e){
-				var username = $('.login').find('#username').val();
-				var password = $('.login').find('#password').val();
+				var username = $('#username').val();
+				var password = $('#password').val();
 				$.ajax({
 			        type: 'POST',
 			        url: 'parse/login.php',
